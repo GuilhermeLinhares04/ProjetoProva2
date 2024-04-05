@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Histórico</title>
+    <script src="https://unpkg.com/htmx@1.9.11"></script>
+</head>
+<body>
+    <h1>Histórico de requisições:</h1>
+    <ul class ="logs" hx-get="http://127.0.0.1:5000" hx-trigger="every 5s">
+        {%for log in logs%}
+
+            <li>
+                {{log['timestamp']}} - {{log['method']}} - {{log['route']}}
+            </li>
+
+        {%endfor%}
+    </ul>
+</body>
+</html>
